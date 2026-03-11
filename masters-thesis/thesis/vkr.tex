@@ -1,0 +1,66 @@
+% !TEX TS-program = xelatex
+% !BIB program = bibtex
+% !TeX spellcheck = ru_RU
+
+% About magic macroses see also  
+% https://tex.stackexchange.com/questions/78101/ 
+
+% Этот шаблон ВКР: https://github.com/spbu-se/matmex-diploma-template
+% Ревизия на момент написания ВКР: 1c0b998 (May 16, 2022)
+
+\input{header.tex}
+\input{header2.tex}
+
+\usepackage{totcount}
+
+\usepackage{caption}
+\usepackage{listings}
+
+\DeclareCaptionFont{white}{ \color{white} }
+\DeclareCaptionFormat{listing}{
+    \parbox{\textwidth}{\hspace{15pt}#1#2#3}
+}
+\captionsetup[lstlisting]{ format=listing
+  %, labelfont=white, textfont=white
+  , singlelinecheck=false, margin=0pt, font={bf}
+}
+
+% Нужно, чтобы помещать картинки точно туда, где они находятся в коде LaTeX
+% https://www.overleaf.com/learn/latex/Positioning_of_Figures
+\usepackage{float}
+
+\begin{document}
+\input{title.tex}
+\maketitle
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+% \begin{abstract}
+%   В курсаче не нужен
+% \end{abstract}
+
+\section*{Введение}
+\input{000intro}
+
+\section{Постановка задачи}
+\input{010task}
+
+\section{Обзор существующих решений}
+\input{020related}
+
+\section{Архитектура}
+\input{030architecture}
+
+\section{Особенности реализации}
+\input{040implementation}
+
+\section{Тестирование и апробация}
+\input{050testing}
+
+\section*{Заключение}
+\input{060conclusion}
+
+\setmonofont[Mapping=tex-text]{CMU Typewriter Text}
+  \bibliographystyle{ugost2008ls}
+  \bibliography{vkr}
+\end{document}

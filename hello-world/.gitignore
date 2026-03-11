@@ -1,0 +1,8 @@
+# Build and test files
+out/
+__pycache__/
+.pytest_cache/
+
+# Development friendly files
+.vscode
+.idea
